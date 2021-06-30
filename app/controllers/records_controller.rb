@@ -1,5 +1,6 @@
 class RecordsController < ApplicationController
   before_action :set_record, only: %i[ show edit update destroy ]
+  before_action :set_record_info, only: %i[ edit new ]
 
   # GET /records or /records.json
   def index
@@ -62,8 +63,14 @@ class RecordsController < ApplicationController
       @record = Record.find(params[:id])
     end
 
+    def set_record_info
+      @age_groups = ['8 and Under', '9-10', '11-12', '13-14', '15-18']
+      @strokes = ['Freestyle', 'Backstroke', 'Breaststroke', 'Butterfly', 'IM']
+      @distances = [25, 50, 100]
+    end
+
     # Only allow a list of trusted parameters through.
     def record_params
-      params.require(:record).permit(:age_group, :stroke, :distance, :swimmer)
+      params.require(:record).permit(:age_group, :gender, :stroke, :distance, :swimmer)
     end
 end

@@ -13,22 +13,22 @@
 
   <div class="field">
     <%= form.label :age_group %>
-    <%= form.number_field :age_group %>
+    <%= form.select :age_group, @age_groups, class: 'form-select' %>
   </div>
 
   <div class="field">
     <%= form.label :stroke %>
-    <%= form.text_field :stroke %>
+    <%= form.select :stroke, @strokes, class: 'form-select' %>
   </div>
 
   <div class="field">
     <%= form.label :distance %>
-    <%= form.number_field :distance %>
+    <%= form.select :distance, @distances, class: 'form-select' %>
   </div>
 
   <div class="field">
-    <%= form.label :swimmer %>
-    <%= form.text_field :swimmer %>
+    <%= form.label 'Swimmer(s)' %>
+    <%= form.text_field :swimmer, class: 'form-control' %>
   </div>
 
   <div class="actions">

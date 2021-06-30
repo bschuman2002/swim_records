@@ -1,5 +1,5 @@
 <div class="row">
-  <div class="col-md-4 carousel slide" data-bs-ride="carousel">
+  <div style="height: 75vh;" class="col-md-7 carousel slide" data-bs-ride="carousel">
     <div class="carousel-inner">
       <% @slides.each do |slide| %>
         <% if slide == @slides.first %>
@@ -11,6 +11,23 @@
             <%= image_tag url_for(slide.image), class: "d-block w-100" %>
           </div>
         <% end %>
+      <% end %>
+    </div>
+  </div>
+  <div id="contentwrapper" class="bg-success scrollable col-md-5 border border-success vh-100">
+    <div id="inner-wrapper">
+      <br>
+      <br>
+      <% @records.each do |record| %>
+        <div class="h-100 p-5 bg-light border rounded-3">
+          <div class="container-fluid py-3">
+            <h5 class="fw-bold">
+              <%= "#{record.age_group} 
+                #{record.gender} #{record.distance} #{record.stroke}" %></h5>
+          <p class="lead"><%= "#{record.swimmer} | #{record.time}" %></p>
+          </div>
+        </div>
+        <br>
       <% end %>
     </div>
   </div>

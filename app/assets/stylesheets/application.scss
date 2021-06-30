@@ -1,1 +1,25 @@
+@import "theme";
 @import "bootstrap";
+
+.scrollable {
+  overflow: hidden;
+}
+
+#inner-wrapper {
+  animation: autoscroll 50s linear infinite;
+}
+
+@keyframes autoscroll {
+  from { 
+    transform: translate3d(0,0,0);
+  }
+  to {
+    transform: translate3d(0,-90%,0);
+  }
+}
+
+tr {
+  line-height: 35px;
+  min-height: 35px;
+  height: 35px;
+}
