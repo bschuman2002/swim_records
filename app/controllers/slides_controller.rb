@@ -1,5 +1,6 @@
 class SlidesController < ApplicationController
   before_action :set_slide, only: %i[ show edit update destroy ]
+  before_action :authorize
 
   # GET /slides or /slides.json
   def index

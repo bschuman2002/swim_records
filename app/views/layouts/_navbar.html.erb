@@ -1,5 +1,28 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-dark py-1">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <div class="container-fluid">
-    <%= image_tag asset_path("logo.jpeg"), width: 100 %>
+    <%= link_to image_tag(asset_path("logo.jpeg"), width: 100), "#", class: "navbar-brand" %>
+    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+    <% if current_user %>
+    <li class="nav-item">
+      Logged in as: <%= current_user.email %>
+    </li>
+    <% end %>
+    </ul>
+    <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+    <% if current_user %>
+      <li class="nav-item">
+        <%= link_to 'Records', records_path, class: "nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Slides', slides_path, class: "nav-link" %>
+      <% if current_user.admin %>
+        <li class="nav-item">
+          <%= link_to 'Users', users_path, class: "nav-link" %>
+        </li>
+      <% end %>
+      <li class="nav-item">
+        <%= link_to 'Log Out', logout_path, class: "nav-link" %>
+      </li>
+    <% end %>
   </div>
 </nav>
